@@ -43,7 +43,8 @@ return [
         'vendor/ramsey',
         'vendor/psr',
         'vendor/symfony',
-        'vendor/phpunit'        
+        'vendor/phpunit',
+        'vendor/guzzlehttp'        
     ],
 
     // A directory list that defines files that will be excluded
