@@ -33,7 +33,7 @@ jobs:
         DB_CONNECTION: sqlite
         DB_DATABASE: database/database.sqlite
       run: vendor/bin/phpunit
-    - name: Run PHP_CodeSniffer
-      run: ./vendor/bin/phan --config-file ./.phan/config.php
     - name: Run Phan
       run: ./vendor/bin/phpcs --standard=./.phpcs.xml
+    - name: Run PHP_CodeSniffer
+      run: ./vendor/bin/phan --config-file ./.phan/config.php
