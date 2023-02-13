@@ -42,7 +42,8 @@ return [
         'vendor/nesbot',
         'vendor/ramsey',
         'vendor/psr',
-        'vendor/symfony',        
+        'vendor/symfony',
+        'vendor/phpunit'        
     ],
 
     // A directory list that defines files that will be excluded
