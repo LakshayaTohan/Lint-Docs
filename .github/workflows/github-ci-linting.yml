@@ -1,4 +1,4 @@
-name: Laravel
+name: PHP-CI
 
 on:
   push:
@@ -7,7 +7,7 @@ on:
     branches: [ "main" ]
 
 jobs:
-  laravel-tests:
+  Laravel-Tests:
 
     runs-on: ubuntu-latest
 
@@ -33,7 +33,7 @@ jobs:
         DB_CONNECTION: sqlite
         DB_DATABASE: database/database.sqlite
       run: vendor/bin/phpunit
-    - name: Run Phan
-      run: ./vendor/bin/phan --config-file ./.phan/config.php
     - name: Run PHP_CodeSniffer
-      run: ./vendor/bin/phpcs --standard=./.phpcs.xml
+      run: lint
+    - name: Run Phan
+      run: phan
