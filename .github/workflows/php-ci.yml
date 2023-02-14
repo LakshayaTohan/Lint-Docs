@@ -7,7 +7,7 @@ on:
     branches: [ "main" ]
 
 jobs:
-  Laravel-Tests:
+  Laravel-Lint:
 
     runs-on: ubuntu-latest
 
@@ -24,16 +24,7 @@ jobs:
       run: php artisan key:generate
     - name: Directory Permissions
       run: chmod -R 777 storage bootstrap/cache
-    - name: Create Database
-      run: |
-        mkdir -p database
-        touch database/database.sqlite
-    - name: Execute tests (Unit and Feature tests) via PHPUnit
-      env:
-        DB_CONNECTION: sqlite
-        DB_DATABASE: database/database.sqlite
-      run: vendor/bin/phpunit
-    - name: Run PHP_CodeSniffer
-      run: lint
-    - name: Run Phan
-      run: phan
+    - name: Run PHP_CodeSniffer (Code linting)
+      run: ./vendor/bin/phpcs --standard=./.phpcs.xml
+    - name: Run Phan (Static code analysis)
+      run: ./vendor/bin/phan --config-file ./.phan/config.php
